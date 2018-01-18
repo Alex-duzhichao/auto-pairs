@@ -26,7 +26,7 @@ end
 
 " Map <C-h> as the same BS
 if !exists('g:AutoPairsMapCh')
-  let g:AutoPairsMapCh = 1
+  let g:AutoPairsMapCh = 0
 end
 
 if !exists('g:AutoPairsMapCR')
@@ -42,11 +42,11 @@ if !exists('g:AutoPairsCenterLine')
 end
 
 if !exists('g:AutoPairsShortcutToggle')
-  let g:AutoPairsShortcutToggle = '<M-p>'
+  let g:AutoPairsShortcutToggle = ''
 end
 
 if !exists('g:AutoPairsShortcutFastWrap')
-  let g:AutoPairsShortcutFastWrap = '<M-e>'
+  let g:AutoPairsShortcutFastWrap = ''
 end
 
 if !exists('g:AutoPairsMoveCharacter')
@@ -54,13 +54,13 @@ if !exists('g:AutoPairsMoveCharacter')
 end
 
 if !exists('g:AutoPairsShortcutJump')
-  let g:AutoPairsShortcutJump = '<M-n>'
+  let g:AutoPairsShortcutJump = ''
 endif
 
 " Fly mode will for closed pair to jump to closed pair instead of insert.
 " also support AutoPairsBackInsert to insert pairs where jumped.
 if !exists('g:AutoPairsFlyMode')
-  let g:AutoPairsFlyMode = 0
+  let g:AutoPairsFlyMode = 1
 endif
 
 " When skipping the closed pair, look at the current and
@@ -71,7 +71,7 @@ endif
 
 " Work with Fly Mode, insert pair where jumped
 if !exists('g:AutoPairsShortcutBackInsert')
-  let g:AutoPairsShortcutBackInsert = '<M-b>'
+  let g:AutoPairsShortcutBackInsert = ''
 endif
 
 if !exists('g:AutoPairsSmartQuotes')
@@ -81,11 +81,7 @@ endif
 " 7.4.849 support <C-G>U to avoid breaking '.'
 " Issue talk: https://github.com/jiangmiao/auto-pairs/issues/3
 " Vim note: https://github.com/vim/vim/releases/tag/v7.4.849
-if v:version > 704 || v:version == 704 && has("patch849")
-  let s:Go = "\<C-G>U"
-else
-  let s:Go = ""
-endif
+let s:Go = "\<C-G>U"
 
 let s:Left = s:Go."\<LEFT>"
 let s:Right = s:Go."\<RIGHT>"
